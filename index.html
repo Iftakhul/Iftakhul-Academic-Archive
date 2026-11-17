@@ -123,7 +123,7 @@
         </button>
         <button id="nav-semester1" onclick="switchTab('semester1')" class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all text-slate-300 hover:text-white hover:bg-slate-800/70 flex items-center gap-2">
           <span>Semester 1</span>
-          <span id="badge-total-tasks" class="text-[11px] font-mono px-1.5 py-0.5 rounded-md bg-slate-800 text-amber-400">7</span>
+          <span id="badge-total-tasks" class="text-[11px] font-mono px-1.5 py-0.5 rounded-md bg-slate-800 text-amber-400">0</span>
         </button>
       </nav>
 
@@ -330,7 +330,7 @@
                   src="profil.jpg"
                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect width=%22200%22 height=%22200%22 fill=%22%23111e38%22/><circle cx=%22100%22 cy=%2276%22 r=%2236%22 fill=%22%23f59e0b%22 opacity=%220.85%22/><path d=%22M40 185 C40 140, 160 140, 160 185%22 fill=%22%2338bdf8%22 opacity=%220.85%22/><text x=%22100%22 y=%22192%22 text-anchor=%22middle%22 fill=%22%23cbd5e1%22 font-family=%22sans-serif%22 font-size=%2211%22>Letakkan profil.jpg</text></svg>';"
                   alt="Foto Profil Muhammad Iftakhul Nidhom"
-                  class="w-full h-full object-cover object-[50%_35%] rounded-full"
+                  class="w-full h-full object-cover object-[50%_25%] rounded-full"
                 />
               </div>
 
@@ -479,12 +479,10 @@
           <p class="text-sm text-slate-400 mt-1">Pengelompokan tugas kuliah berdasarkan 7 mata kuliah resmi Program Studi Ekonomi Pembangunan.</p>
         </div>
 
-        <button onclick="openAddModal()" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition-all shrink-0">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-          </svg>
-          <span>Tambah Tugas Baru</span>
-        </button>
+        <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-navy-900/90 border border-slate-800 text-xs font-mono text-slate-300 shrink-0">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Arsip Terverifikasi • Read-Only</span>
+        </div>
       </div>
 
       <!-- 7 Courses Directory Grid -->
@@ -543,9 +541,7 @@
           <h3 id="modal-title" class="text-lg sm:text-xl font-bold text-white leading-snug"></h3>
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <button id="modal-delete-btn" onclick="deleteCurrentTask()" class="hidden px-3 py-1.5 rounded-lg bg-rose-500/15 hover:bg-rose-500/25 text-rose-400 border border-rose-500/30 text-xs font-semibold transition-colors">
-            Hapus
-          </button>
+
           <button onclick="closeReadModal()" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -596,77 +592,6 @@
     </div>
   </div>
 
-  <!-- ==================== MODAL 2: TAMBAH TUGAS BARU (GOOGLE DRIVE) ==================== -->
-  <div id="add-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-    <div class="glass-card rounded-3xl w-full max-w-lg overflow-hidden border border-slate-700/80">
-      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-navy-900/90">
-        <h3 class="text-lg font-bold text-white">Tambah Tugas Semester 1</h3>
-        <button onclick="closeAddModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
-      <form id="add-task-form" onsubmit="handleAddTask(event)" class="p-6 space-y-4 max-h-[82vh] overflow-y-auto">
-        <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">Mata Kuliah *</label>
-          <select id="input-course" required class="w-full px-3.5 py-2.5 rounded-xl bg-navy-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
-            <option value="Pengantar Bisnis">1. Pengantar Bisnis</option>
-            <option value="Pengantar Ekonomi Makro">2. Pengantar Ekonomi Makro</option>
-            <option value="Pengantar Ekonomi Mikro">3. Pengantar Ekonomi Mikro</option>
-            <option value="Bank dan Lembaga Keuangan">4. Bank dan Lembaga Keuangan</option>
-            <option value="Pengantar Akuntansi">5. Pengantar Akuntansi</option>
-            <option value="Matematika">6. Matematika</option>
-            <option value="Pendidikan Pancasila">7. Pendidikan Pancasila</option>
-          </select>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">Jenis File / Tugas *</label>
-            <select id="input-type" required class="w-full px-3.5 py-2.5 rounded-xl bg-navy-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400">
-              <option value="Presentasi PPT">Presentasi PPT (.ppt/.pptx)</option>
-              <option value="Makalah / PDF">Makalah / PDF (.pdf)</option>
-              <option value="Dokumen Word">Dokumen Word (.doc/.docx)</option>
-              <option value="Laporan Excel">Data / Tabel Excel (.xlsx)</option>
-              <option value="Resume / Esai">Resume / Esai</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">Tanggal Tugas</label>
-            <input type="text" id="input-date" value="17 November 2026" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-amber-400" />
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">Judul Tugas *</label>
-          <input type="text" id="input-title" required placeholder="Contoh: Analisis Kebijakan Moneter Bank Indonesia" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-950 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400" />
-        </div>
-
-        <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-sky-400 mb-1.5">Tautan Google Drive / Slides / Docs *</label>
-          <input type="url" id="input-drive" required placeholder="https://drive.google.com/file/d/.../view?usp=sharing" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-950 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-400" />
-          <p class="text-[11px] text-slate-400 mt-1">Mendukung link PDF, PPT/Google Slides, Word/Google Docs, &amp; Excel/Sheets dari Google Drive.</p>
-        </div>
-
-        <div>
-          <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">Ringkasan / Catatan Isi Tugas *</label>
-          <textarea id="input-content" rows="3" required placeholder="Tuliskan deskripsi singkat atau kesimpulan dari tugas ini..." class="w-full px-3.5 py-2.5 rounded-xl bg-navy-950 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"></textarea>
-        </div>
-
-        <div class="pt-2 flex items-center justify-end gap-2.5">
-          <button type="button" onclick="closeAddModal()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-sm font-semibold text-slate-300">
-            Batal
-          </button>
-          <button type="submit" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold text-sm shadow-lg shadow-amber-500/20">
-            Simpan Tugas
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
     <div class="px-4 py-3 rounded-xl bg-navy-900 border border-amber-400/50 text-slate-100 text-sm font-medium shadow-2xl flex items-center gap-2.5">
@@ -676,24 +601,7 @@
   </div>
 
   <script>
-    // 1. Safe Storage (localStorage with In-Memory Fallback so it never crashes in sandbox)
-    const memoryStore = {};
-    const safeStorage = {
-      getItem(key) {
-        try {
-          return window.localStorage.getItem(key);
-        } catch (e) {
-          return memoryStore[key] || null;
-        }
-      },
-      setItem(key, value) {
-        try {
-          window.localStorage.setItem(key, value);
-        } catch (e) {
-          memoryStore[key] = value;
-        }
-      }
-    };
+
 
     // 2. Official 7 Courses in Semester 1
     const COURSES = [
@@ -706,71 +614,19 @@
       { id: 'Pendidikan Pancasila', code: 'MK-07', name: 'Pendidikan Pancasila', accent: 'amber' }
     ];
 
-    // 3. Default Permanent Tasks (Editable directly in code before uploading to Netlify)
+    // 3. Default Permanent Tasks (Kosong / 0 Tugas di awal — tambahkan tugas Anda di dalam kurung siku ini)
     const defaultTasks = [
+      /* CONTOH FORMAT TUGAS (hapus tanda komentar /* dan */ jika ingin mengisi):
       {
         id: 'task-1',
         course: 'Pengantar Bisnis',
-        title: 'Analisis Model Bisnis UMKM & Strategi Pemasaran Digital di Surabaya',
-        type: 'Makalah / PDF',
-        date: '14 Oktober 2026',
-        content: 'Kajian mengenai transformasi digital pada sektor UMKM di Kota Surabaya, meliputi analisis Business Model Canvas (BMC), manajemen operasional rantai pasok sederhana, serta strategi peningkatan daya saing lokal.',
-        driveUrl: ''
-      },
-      {
-        id: 'task-2',
-        course: 'Pengantar Ekonomi Makro',
-        title: 'Dinamika Inflasi, Produk Domestik Bruto (PDB), dan Kebijakan Fiskal',
+        title: 'Judul Tugas Anda',
         type: 'Presentasi PPT',
-        date: '21 Oktober 2026',
-        content: 'Materi presentasi kelompok yang membahas hubungan antara pertumbuhan PDB riil, tingkat inflasi tahunan, serta instrumen kebijakan fiskal pemerintah dalam menjaga stabilitas makroekonomi nasional.',
-        driveUrl: ''
-      },
-      {
-        id: 'task-3',
-        course: 'Pengantar Ekonomi Mikro',
-        title: 'Elastisitas Permintaan-Penawaran dan Keseimbangan Pasar Komoditas Pangan',
-        type: 'Resume / Esai',
-        date: '28 Oktober 2026',
-        content: 'Analisis kurva permintaan dan penawaran serta perhitungan koefisien elastisitas harga pada komoditas kebutuhan pokok di pasar tradisional dan modern.',
-        driveUrl: ''
-      },
-      {
-        id: 'task-4',
-        course: 'Bank dan Lembaga Keuangan',
-        title: 'Peran Bank Sentral (Bank Indonesia) dan Transmisi Kebijakan Moneter',
-        type: 'Presentasi PPT',
-        date: '02 November 2026',
-        content: 'Slide presentasi mengenai fungsi intermediasi perbankan umum, lembaga keuangan non-bank, serta mekanisme BI-Rate dalam mengendalikan jumlah uang beredar.',
-        driveUrl: ''
-      },
-      {
-        id: 'task-5',
-        course: 'Pengantar Akuntansi',
-        title: 'Penyusunan Siklus Akuntansi Perusahaan Jasa: Jurnal Umum hingga Neraca Saldo',
-        type: 'Laporan Excel',
-        date: '07 November 2026',
-        content: 'Praktik pencatatan transaksi keuangan perusahaan jasa ke dalam jurnal umum, pemindahbukuan ke buku besar, penyusunan neraca saldo, dan jurnal penyesuaian akhir periode.',
-        driveUrl: ''
-      },
-      {
-        id: 'task-6',
-        course: 'Matematika',
-        title: 'Penerapan Fungsi Linier, Non-Linier, dan Diferensial dalam Optimasi Ekonomi',
-        type: 'Makalah / PDF',
-        date: '11 November 2026',
-        content: 'Penyelesaian studi kasus fungsi biaya total (TC), penerimaan total (TR), titik impas (Break-Even Point), serta optimasi laba maksimum menggunakan turunan pertama.',
-        driveUrl: ''
-      },
-      {
-        id: 'task-7',
-        course: 'Pendidikan Pancasila',
-        title: 'Implementasi Nilai-Nilai Pancasila dalam Sistem Ekonomi Kerakyatan',
-        type: 'Resume / Esai',
-        date: '15 November 2026',
-        content: 'Refleksi filosofis sila ke-5 Pancasila (Keadilan Sosial bagi Seluruh Rakyat Indonesia) terhadap pemerataan pembangunan ekonomi dan penguatan koperasi.',
-        driveUrl: ''
+        date: '17 November 2026',
+        content: 'Ringkasan singkat isi tugas Anda di sini.',
+        driveUrl: 'https://drive.google.com/file/d/KODE_FILE_ANDA/view?usp=sharing'
       }
+      */
     ];
 
     // State
@@ -779,24 +635,9 @@
     let searchQuery = '';
     let activeTaskId = null;
 
-    // Load Tasks
+    // Load Tasks (Hanya dari daftar resmi yang diunggah pemilik blog di GitHub)
     function loadTasks() {
-      const saved = safeStorage.getItem('nidhom_blog_tasks_v1');
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved);
-          if (Array.isArray(parsed) && parsed.length > 0) {
-            tasks = parsed;
-            return;
-          }
-        } catch (e) {}
-      }
       tasks = [...defaultTasks];
-    }
-
-    function saveTasks() {
-      safeStorage.setItem('nidhom_blog_tasks_v1', JSON.stringify(tasks));
-      updateBadgeCount();
     }
 
     function updateBadgeCount() {
@@ -945,8 +786,8 @@
       if (filtered.length === 0) {
         container.innerHTML = `
           <div class="col-span-full glass-card rounded-2xl p-10 text-center">
-            <p class="text-slate-300 font-semibold">Belum ada tugas yang sesuai dengan filter.</p>
-            <p class="text-xs text-slate-400 mt-1">Klik tombol "+ Tambah Tugas Baru" untuk menyematkan tautan Google Drive tugas Anda.</p>
+            <p class="text-slate-300 font-semibold">Belum ada tugas yang diunggah pada kategori ini.</p>
+            <p class="text-xs text-slate-400 mt-1">Silakan pilih mata kuliah lain atau periksa kembali secara berkala.</p>
           </div>
         `;
         return;
@@ -1003,13 +844,6 @@
       document.getElementById('modal-title').textContent = task.title;
       document.getElementById('modal-content').textContent = task.content;
 
-      // Show delete button for user-added tasks
-      const delBtn = document.getElementById('modal-delete-btn');
-      if (task.id.startsWith('user-')) {
-        delBtn.classList.remove('hidden');
-      } else {
-        delBtn.classList.add('hidden');
-      }
 
       // Embedded Google Drive / Workspace Viewer
       const embedWrapper = document.getElementById('modal-embed-wrapper');
@@ -1044,59 +878,6 @@
       const iframeContainer = document.getElementById('iframe-container');
       box.classList.toggle('max-w-6xl');
       iframeContainer.classList.toggle('h-[65vh]');
-    }
-
-    function deleteCurrentTask() {
-      if (!activeTaskId) return;
-      tasks = tasks.filter(t => t.id !== activeTaskId);
-      saveTasks();
-      closeReadModal();
-      renderSemester1();
-      showToast('Tugas berhasil dihapus.');
-    }
-
-    // Add Task Modal Functions
-    function openAddModal() {
-      if (selectedCourse !== 'ALL') {
-        document.getElementById('input-course').value = selectedCourse;
-      }
-      const modal = document.getElementById('add-modal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeAddModal() {
-      const modal = document.getElementById('add-modal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.getElementById('add-task-form').reset();
-    }
-
-    function handleAddTask(e) {
-      e.preventDefault();
-      const course = document.getElementById('input-course').value;
-      const type = document.getElementById('input-type').value;
-      const date = document.getElementById('input-date').value || '17 November 2026';
-      const title = document.getElementById('input-title').value.trim();
-      const driveUrl = document.getElementById('input-drive').value.trim();
-      const content = document.getElementById('input-content').value.trim();
-
-      const newTask = {
-        id: 'user-' + Date.now(),
-        course,
-        type,
-        date,
-        title,
-        driveUrl,
-        content
-      };
-
-      tasks.unshift(newTask);
-      saveTasks();
-      closeAddModal();
-      selectedCourse = course;
-      renderSemester1();
-      showToast('Tugas & tautan Google Drive berhasil ditambahkan!');
     }
 
     // Copy Utility
