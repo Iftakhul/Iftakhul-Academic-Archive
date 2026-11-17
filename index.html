@@ -441,48 +441,72 @@
       </div>
     </section>
 
-    <!-- ==================== TAB 2: SEMESTER 1 (7 MATA KULIAH) ==================== -->
+    <!-- ==================== TAB 2: SEMESTER 1 (SUB-HALAMAN FOLDER MATA KULIAH) ==================== -->
     <section id="view-semester1" class="hidden max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-20">
       
-      <!-- Header Section -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/25 text-sky-300 text-xs font-mono mb-2">
-            <span>ARSIP AKADEMIK • 7 MATA KULIAH</span>
+      <!-- SUB-VIEW A: DAFTAR 7 MATA KULIAH -->
+      <div id="sem1-courses-view">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/25 text-sky-300 text-xs font-mono mb-2">
+              <span>ARSIP AKADEMIK • 7 MATA KULIAH</span>
+            </div>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white">Mata Kuliah Semester 1</h2>
+            <p class="text-sm text-slate-400 mt-1">Pilih salah satu mata kuliah di bawah ini untuk membuka daftar tugas perkuliahan.</p>
           </div>
-          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white">Tugas Perkuliahan Semester 1</h2>
-          <p class="text-sm text-slate-400 mt-1">Pengelompokan tugas kuliah berdasarkan 7 mata kuliah resmi Program Studi Ekonomi Pembangunan.</p>
+
+          <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-navy-900/90 border border-slate-800 text-xs font-mono text-slate-300 shrink-0">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Arsip Terverifikasi • Read-Only</span>
+          </div>
         </div>
 
-        <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-navy-900/90 border border-slate-800 text-xs font-mono text-slate-300 shrink-0">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span>Arsip Terverifikasi • Read-Only</span>
-        </div>
+        <!-- 7 Courses Directory Grid -->
+        <div id="courses-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
       </div>
 
-      <!-- 7 Courses Directory Grid -->
-      <div id="courses-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-8"></div>
+      <!-- SUB-VIEW B: HALAMAN KHUSUS TUGAS PER MATA KULIAH -->
+      <div id="sem1-tasks-view" class="hidden">
+        <!-- Back Button & Course Page Header -->
+        <div class="mb-6">
+          <button onclick="backToCoursesList()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-900 hover:bg-slate-800 border border-slate-700/80 text-xs sm:text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors mb-5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Kembali ke Daftar Mata Kuliah</span>
+          </button>
 
-      <!-- Filter & Search Bar -->
-      <div class="glass-card rounded-2xl p-4 mb-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
-        <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0" id="course-filter-pills"></div>
-        <div class="relative w-full md:w-72 shrink-0">
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="text"
-            id="search-input"
-            oninput="handleSearch(this.value)"
-            placeholder="Cari judul atau topik tugas..."
-            class="w-full pl-10 pr-4 py-2 rounded-xl bg-navy-950/90 border border-slate-700/80 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400"
-          />
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/25 text-amber-300 text-xs font-mono mb-2">
+                <span id="course-page-code">MK-01</span>
+                <span>•</span>
+                <span>SEMESTER 1</span>
+              </div>
+              <h2 id="course-page-title" class="font-serif text-2xl sm:text-3xl font-bold text-white">Nama Mata Kuliah</h2>
+              <p id="course-page-subtitle" class="text-sm text-slate-400 mt-1">Menampilkan seluruh arsip tugas pada mata kuliah ini.</p>
+            </div>
+
+            <!-- Search Input inside Course Page -->
+            <div class="relative w-full md:w-72 shrink-0">
+              <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                id="search-input"
+                oninput="handleSearch(this.value)"
+                placeholder="Cari tugas di mata kuliah ini..."
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-navy-900/90 border border-slate-700/80 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400"
+              />
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Tasks List Grid -->
-      <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+        <!-- Tasks List Grid for Selected Course -->
+        <div id="tasks-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      </div>
 
     </section>
 
@@ -578,21 +602,20 @@
 
     // 2. Daftar Tugas Resmi (Tambahkan objek tugas Anda di dalam kurung siku ini)
     const defaultTasks = [
-         {
-     id: 'task-1',
-     course: 'Pengantar Bisnis',
-     title: 'Makalah Hakikat, Tujuan, dan Karakteristik Dalam Ruang Lingkup Bisnis',
-     type: 'Makalah PDF',
-     date: '08 September 2026',
-     content: 'Makalah mata kuliah Pengantar Bisnis (Dosen Pengampu: Dr. Muhammad Yasin, S.E., M.M.) yang disusun oleh Muhammad Iftakhul Nidhom dan Aisyah Zalsabilla. Membahas konsep dasar bisnis sebagai penciptaan nilai dan pertukaran ekonomi, teori stakeholder, orientasi pasar dan kewirausahaan, inovasi model bisnis, Good Corporate Governance (GCG), Corporate Social Responsibility (CSR), serta keberlanjutan usaha di tengah perubahan lingkungan bisnis.',
-     driveUrl: 'https://drive.google.com/file/d/1K0cCkuIRxGHiKOy-MY6EQyDTdXjfQpeK/view?usp=drivesdk'
-   },
-
+      {
+        id: 'task-1',
+        course: 'Pengantar Bisnis',
+        title: 'Makalah Hakikat, Tujuan, dan Karakteristik Dalam Ruang Lingkup Bisnis',
+        type: 'Makalah PDF',
+        date: '08 September 2026',
+        content: 'Makalah mata kuliah Pengantar Bisnis (Dosen Pengampu: Dr. Muhammad Yasin, S.E., M.M.) yang disusun oleh Muhammad Iftakhul Nidhom dan Aisyah Zalsabilla. Membahas konsep dasar bisnis sebagai penciptaan nilai dan pertukaran ekonomi, teori stakeholder, orientasi pasar dan kewirausahaan, inovasi model bisnis, Good Corporate Governance (GCG), Corporate Social Responsibility (CSR), serta keberlanjutan usaha di tengah perubahan lingkungan bisnis.',
+        driveUrl: 'https://drive.google.com/file/d/1K0cCkuIRxGHiKOy-MY6EQyDTdXjfQpeK/view?usp=drivesdk'
+      }
     ];
 
     // State
     let tasks = [];
-    let selectedCourse = 'ALL';
+    let selectedCourse = null;
     let searchQuery = '';
     let activeTaskId = null;
 
@@ -655,69 +678,72 @@
         mNavSem1.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500 text-navy-950';
         mNavBeranda.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300';
 
-        renderSemester1();
+        // Selalu tampilkan daftar 7 mata kuliah saat membuka tab Semester 1
+        backToCoursesList(false);
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function renderSemester1() {
+    function backToCoursesList(shouldScrollTop = true) {
+      selectedCourse = null;
+      searchQuery = '';
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) searchInput.value = '';
+
+      document.getElementById('sem1-courses-view').classList.remove('hidden');
+      document.getElementById('sem1-tasks-view').classList.add('hidden');
+
       renderCoursesDirectory();
-      renderFilterPills();
+      if (shouldScrollTop) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function openCoursePage(courseId) {
+      const courseObj = COURSES.find(c => c.id === courseId);
+      if (!courseObj) return;
+
+      selectedCourse = courseId;
+      searchQuery = '';
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) searchInput.value = '';
+
+      const count = tasks.filter(t => t.course === courseId).length;
+      document.getElementById('course-page-code').textContent = courseObj.code;
+      document.getElementById('course-page-title').textContent = courseObj.name;
+      document.getElementById('course-page-subtitle').textContent = `Terdapat ${count} arsip tugas tersimpan pada mata kuliah ini.`;
+
+      document.getElementById('sem1-courses-view').classList.add('hidden');
+      document.getElementById('sem1-tasks-view').classList.remove('hidden');
+
       renderTasksList();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function renderCoursesDirectory() {
       const container = document.getElementById('courses-grid');
       container.innerHTML = COURSES.map((c, idx) => {
         const count = tasks.filter(t => t.course === c.id).length;
-        const isActive = selectedCourse === c.id;
-        const borderClass = isActive
-          ? 'border-amber-400 bg-amber-500/10 ring-1 ring-amber-400/40'
-          : 'border-slate-800 bg-navy-900/65 hover:border-slate-700';
+        const hasTasks = count > 0;
+        const badgeStyle = hasTasks
+          ? 'bg-amber-500/15 text-amber-300 border border-amber-400/30'
+          : 'bg-slate-800/90 text-slate-400';
 
         return `
-          <button onclick="selectCourseFilter('${c.id}')" class="text-left p-4 rounded-2xl border transition-all ${borderClass} flex flex-col justify-between gap-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-amber-400">0${idx + 1}</span>
-              <span class="text-xs font-mono text-slate-400">${count} Tugas</span>
+          <button onclick="openCoursePage('${c.id}')" class="glass-card-hover text-left p-5 rounded-2xl border border-slate-800 bg-navy-900/75 flex flex-col justify-between gap-4 group">
+            <div class="flex items-center justify-between w-full">
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-slate-800 text-amber-400">0${idx + 1}</span>
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full ${badgeStyle}">${count} Tugas</span>
             </div>
-            <h3 class="text-sm font-bold text-slate-100 leading-snug">${c.name}</h3>
+            <div class="flex items-end justify-between gap-2 w-full">
+              <h3 class="text-base font-bold text-slate-100 group-hover:text-amber-300 transition-colors leading-snug">${c.name}</h3>
+              <svg class="w-4 h-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all shrink-0 mb-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
           </button>
         `;
       }).join('');
-    }
-
-    function renderFilterPills() {
-      const container = document.getElementById('course-filter-pills');
-      const allBtn = `
-        <button onclick="selectCourseFilter('ALL')" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-          selectedCourse === 'ALL'
-            ? 'bg-amber-500 text-navy-950'
-            : 'bg-navy-950 text-slate-300 hover:text-white border border-slate-800'
-        }">
-          Semua Mata Kuliah (${tasks.length})
-        </button>
-      `;
-
-      const courseBtns = COURSES.map(c => {
-        const isActive = selectedCourse === c.id;
-        return `
-          <button onclick="selectCourseFilter('${c.id}')" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-            isActive
-              ? 'bg-amber-500 text-navy-950'
-              : 'bg-navy-950 text-slate-300 hover:text-white border border-slate-800'
-          }">
-            ${c.name}
-          </button>
-        `;
-      }).join('');
-
-      container.innerHTML = allBtn + courseBtns;
-    }
-
-    function selectCourseFilter(courseId) {
-      selectedCourse = (selectedCourse === courseId && courseId !== 'ALL') ? 'ALL' : courseId;
-      renderSemester1();
     }
 
     function handleSearch(val) {
@@ -728,11 +754,11 @@
     function renderTasksList() {
       const container = document.getElementById('tasks-grid');
       const filtered = tasks.filter(t => {
-        const matchCourse = selectedCourse === 'ALL' || t.course === selectedCourse;
+        const matchCourse = t.course === selectedCourse;
         const matchSearch =
           !searchQuery ||
           t.title.toLowerCase().includes(searchQuery) ||
-          t.course.toLowerCase().includes(searchQuery) ||
+          t.type.toLowerCase().includes(searchQuery) ||
           t.content.toLowerCase().includes(searchQuery);
         return matchCourse && matchSearch;
       });
@@ -740,8 +766,8 @@
       if (filtered.length === 0) {
         container.innerHTML = `
           <div class="col-span-full glass-card rounded-2xl p-10 text-center">
-            <p class="text-slate-300 font-semibold">Belum ada tugas yang diunggah pada kategori ini.</p>
-            <p class="text-xs text-slate-400 mt-1">Silakan pilih mata kuliah lain atau periksa kembali secara berkala.</p>
+            <p class="text-slate-300 font-semibold">${searchQuery ? 'Tidak ada tugas yang cocok dengan kata kunci pencarian.' : 'Belum ada tugas yang diunggah pada mata kuliah ini.'}</p>
+            <p class="text-xs text-slate-400 mt-1">${searchQuery ? 'Coba gunakan kata kunci lain atau hapus teks pencarian.' : 'Silakan kembali ke daftar mata kuliah lain atau periksa kembali secara berkala.'}</p>
           </div>
         `;
         return;
