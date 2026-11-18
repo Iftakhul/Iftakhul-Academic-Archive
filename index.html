@@ -173,76 +173,80 @@
             <circle cx="300" cy="210" r="168" fill="none" stroke="rgba(148, 163, 184, 0.14)" stroke-width="1.2" stroke-dasharray="6 6" />
             <circle cx="300" cy="210" r="136" fill="none" stroke="rgba(245, 158, 11, 0.18)" stroke-width="1" />
 
-            <!-- RIGHT TOP: Economic Statistics Bar & Trend Chart Card -->
-            <g class="animate-float-slow" transform="translate(412, 34)">
-              <rect x="0" y="0" width="168" height="122" rx="14" fill="#0f172a" fill-opacity="0.88" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.5" />
-              <circle cx="16" cy="15" r="3" fill="#f59e0b" />
-              <circle cx="26" cy="15" r="3" fill="#38bdf8" />
-              <circle cx="36" cy="15" r="3" fill="#34d399" />
-              <text x="50" y="18" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">GDP &amp; TREN STAT</text>
-              
-              <line x1="16" y1="42" x2="152" y2="42" stroke="rgba(148,163,184,0.12)" stroke-width="1" />
-              <line x1="16" y1="68" x2="152" y2="68" stroke="rgba(148,163,184,0.12)" stroke-width="1" />
-              <line x1="16" y1="94" x2="152" y2="94" stroke="rgba(148,163,184,0.2)" stroke-width="1" />
+            <!-- RIGHT TOP: Economic Statistics Bar & Trend Chart Card (Outer <g> positions, inner <g> animates) -->
+            <g transform="translate(412, 34)">
+              <g class="animate-float-slow">
+                <rect x="0" y="0" width="168" height="122" rx="14" fill="#0f172a" fill-opacity="0.88" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.5" />
+                <circle cx="16" cy="15" r="3" fill="#f59e0b" />
+                <circle cx="26" cy="15" r="3" fill="#38bdf8" />
+                <circle cx="36" cy="15" r="3" fill="#34d399" />
+                <text x="50" y="18" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600">GDP &amp; TREN STAT</text>
+                
+                <line x1="16" y1="42" x2="152" y2="42" stroke="rgba(148,163,184,0.12)" stroke-width="1" />
+                <line x1="16" y1="68" x2="152" y2="68" stroke="rgba(148,163,184,0.12)" stroke-width="1" />
+                <line x1="16" y1="94" x2="152" y2="94" stroke="rgba(148,163,184,0.2)" stroke-width="1" />
 
-              <rect x="24" y="72" width="14" height="22" rx="3" fill="url(#cyanGrad)" stroke="#38bdf8" stroke-width="1" />
-              <rect x="46" y="58" width="14" height="36" rx="3" fill="url(#cyanGrad)" stroke="#38bdf8" stroke-width="1" />
-              <rect x="68" y="64" width="14" height="30" rx="3" fill="url(#emeraldGrad)" stroke="#34d399" stroke-width="1" />
-              <rect x="90" y="44" width="14" height="50" rx="3" fill="url(#emeraldGrad)" stroke="#34d399" stroke-width="1" />
-              <rect x="112" y="34" width="14" height="60" rx="3" fill="rgba(245, 158, 11, 0.35)" stroke="#f59e0b" stroke-width="1.2" />
+                <rect x="24" y="72" width="14" height="22" rx="3" fill="url(#cyanGrad)" stroke="#38bdf8" stroke-width="1" />
+                <rect x="46" y="58" width="14" height="36" rx="3" fill="url(#cyanGrad)" stroke="#38bdf8" stroke-width="1" />
+                <rect x="68" y="64" width="14" height="30" rx="3" fill="url(#emeraldGrad)" stroke="#34d399" stroke-width="1" />
+                <rect x="90" y="44" width="14" height="50" rx="3" fill="url(#emeraldGrad)" stroke="#34d399" stroke-width="1" />
+                <rect x="112" y="34" width="14" height="60" rx="3" fill="rgba(245, 158, 11, 0.35)" stroke="#f59e0b" stroke-width="1.2" />
 
-              <polyline points="31,68 53,53 75,58 97,39 119,28 142,22" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)" />
-              <circle cx="31" cy="68" r="2.8" fill="#fef3c7" />
-              <circle cx="53" cy="53" r="2.8" fill="#fef3c7" />
-              <circle cx="75" cy="58" r="2.8" fill="#fef3c7" />
-              <circle cx="97" cy="39" r="2.8" fill="#fef3c7" />
-              <circle cx="119" cy="28" r="3.2" fill="#f59e0b" />
-              <text x="16" y="111" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="8.5">R² = 0.942  +6.8%</text>
+                <polyline points="31,68 53,53 75,58 97,39 119,28 142,22" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)" />
+                <circle cx="31" cy="68" r="2.8" fill="#fef3c7" />
+                <circle cx="53" cy="53" r="2.8" fill="#fef3c7" />
+                <circle cx="75" cy="58" r="2.8" fill="#fef3c7" />
+                <circle cx="97" cy="39" r="2.8" fill="#fef3c7" />
+                <circle cx="119" cy="28" r="3.2" fill="#f59e0b" />
+                <text x="16" y="111" fill="#34d399" font-family="JetBrains Mono, monospace" font-size="8.5">R² = 0.942  +6.8%</text>
+              </g>
             </g>
 
-            <!-- LEFT TOP: Scientific / Financial Calculator -->
-            <g class="animate-float-reverse" transform="translate(26, 28) rotate(-6)">
-              <rect x="0" y="0" width="124" height="164" rx="16" fill="#0f172a" fill-opacity="0.92" stroke="rgba(245, 158, 11, 0.45)" stroke-width="1.6" />
-              <rect x="14" y="14" width="96" height="34" rx="7" fill="#064e3b" fill-opacity="0.65" stroke="#34d399" stroke-width="1" />
-              <text x="102" y="27" text-anchor="end" fill="#6ee7b7" font-family="JetBrains Mono, monospace" font-size="7.5">Σ(X-X̄)² / n</text>
-              <text x="102" y="41" text-anchor="end" fill="#ecfdf5" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">1,945.08</text>
-              
-              <g transform="translate(14, 58)">
-                <rect x="0" y="0" width="20" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
-                <text x="10" y="11" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7.5">sin</text>
-                <rect x="25" y="0" width="20" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
-                <text x="35" y="11" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7.5">log</text>
-                <rect x="50" y="0" width="20" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
-                <text x="60" y="11" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7.5">ln</text>
-                <rect x="75" y="0" width="21" height="16" rx="4" fill="rgba(239, 68, 68, 0.25)" stroke="#f87171" stroke-width="0.8" />
-                <text x="85.5" y="11" text-anchor="middle" fill="#fca5a5" font-family="JetBrains Mono, monospace" font-size="7.5">AC</text>
+            <!-- LEFT TOP: Scientific / Financial Calculator (Outer <g> positions, inner <g> animates) -->
+            <g transform="translate(26, 28) rotate(-6)">
+              <g class="animate-float-reverse">
+                <rect x="0" y="0" width="124" height="164" rx="16" fill="#0f172a" fill-opacity="0.92" stroke="rgba(245, 158, 11, 0.45)" stroke-width="1.6" />
+                <rect x="14" y="14" width="96" height="34" rx="7" fill="#064e3b" fill-opacity="0.65" stroke="#34d399" stroke-width="1" />
+                <text x="102" y="27" text-anchor="end" fill="#6ee7b7" font-family="JetBrains Mono, monospace" font-size="7.5">Σ(X-X̄)² / n</text>
+                <text x="102" y="41" text-anchor="end" fill="#ecfdf5" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700">1,945.08</text>
+                
+                <g transform="translate(14, 58)">
+                  <rect x="0" y="0" width="20" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+                  <text x="10" y="11" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7.5">sin</text>
+                  <rect x="25" y="0" width="20" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+                  <text x="35" y="11" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7.5">log</text>
+                  <rect x="50" y="0" width="20" height="16" rx="4" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+                  <text x="60" y="11" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7.5">ln</text>
+                  <rect x="75" y="0" width="21" height="16" rx="4" fill="rgba(239, 68, 68, 0.25)" stroke="#f87171" stroke-width="0.8" />
+                  <text x="85.5" y="11" text-anchor="middle" fill="#fca5a5" font-family="JetBrains Mono, monospace" font-size="7.5">AC</text>
 
-                <rect x="0" y="22" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="10" y="34" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">7</text>
-                <rect x="25" y="22" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="35" y="34" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">8</text>
-                <rect x="50" y="22" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="60" y="34" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">9</text>
-                <rect x="75" y="22" width="21" height="18" rx="4" fill="rgba(56, 189, 248, 0.2)" stroke="#38bdf8" stroke-width="0.8" />
-                <text x="85.5" y="34" text-anchor="middle" fill="#7dd3fc" font-family="JetBrains Mono, monospace" font-size="9">÷</text>
+                  <rect x="0" y="22" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="10" y="34" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">7</text>
+                  <rect x="25" y="22" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="35" y="34" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">8</text>
+                  <rect x="50" y="22" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="60" y="34" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">9</text>
+                  <rect x="75" y="22" width="21" height="18" rx="4" fill="rgba(56, 189, 248, 0.2)" stroke="#38bdf8" stroke-width="0.8" />
+                  <text x="85.5" y="34" text-anchor="middle" fill="#7dd3fc" font-family="JetBrains Mono, monospace" font-size="9">÷</text>
 
-                <rect x="0" y="45" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="10" y="57" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">4</text>
-                <rect x="25" y="45" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="35" y="57" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">5</text>
-                <rect x="50" y="45" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="60" y="57" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">6</text>
-                <rect x="75" y="45" width="21" height="18" rx="4" fill="rgba(56, 189, 248, 0.2)" stroke="#38bdf8" stroke-width="0.8" />
-                <text x="85.5" y="57" text-anchor="middle" fill="#7dd3fc" font-family="JetBrains Mono, monospace" font-size="9">×</text>
+                  <rect x="0" y="45" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="10" y="57" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">4</text>
+                  <rect x="25" y="45" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="35" y="57" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">5</text>
+                  <rect x="50" y="45" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="60" y="57" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">6</text>
+                  <rect x="75" y="45" width="21" height="18" rx="4" fill="rgba(56, 189, 248, 0.2)" stroke="#38bdf8" stroke-width="0.8" />
+                  <text x="85.5" y="57" text-anchor="middle" fill="#7dd3fc" font-family="JetBrains Mono, monospace" font-size="9">×</text>
 
-                <rect x="0" y="68" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="10" y="80" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">1</text>
-                <rect x="25" y="68" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="35" y="80" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">2</text>
-                <rect x="50" y="68" width="20" height="18" rx="4" fill="#1e293b" />
-                <text x="60" y="80" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">3</text>
-                <rect x="75" y="68" width="21" height="18" rx="4" fill="url(#goldGrad)" />
-                <text x="85.5" y="80" text-anchor="middle" fill="#070d19" font-family="JetBrains Mono, monospace" font-size="10" font-weight="800">=</text>
+                  <rect x="0" y="68" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="10" y="80" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">1</text>
+                  <rect x="25" y="68" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="35" y="80" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">2</text>
+                  <rect x="50" y="68" width="20" height="18" rx="4" fill="#1e293b" />
+                  <text x="60" y="80" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="9">3</text>
+                  <rect x="75" y="68" width="21" height="18" rx="4" fill="url(#goldGrad)" />
+                  <text x="85.5" y="80" text-anchor="middle" fill="#070d19" font-family="JetBrains Mono, monospace" font-size="10" font-weight="800">=</text>
+                </g>
               </g>
             </g>
 
