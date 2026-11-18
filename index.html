@@ -122,7 +122,7 @@
         </button>
         <button id="nav-semester1" onclick="switchTab('semester1')" class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all text-slate-300 hover:text-white hover:bg-slate-800/70 flex items-center gap-2">
           <span>Semester 1</span>
-          <span id="badge-total-tasks" class="text-[11px] font-mono px-1.5 py-0.5 rounded-md bg-slate-800 text-amber-400">2</span>
+          <span id="badge-total-tasks" class="text-[11px] font-mono px-1.5 py-0.5 rounded-md bg-slate-800 text-amber-400">3</span>
         </button>
       </nav>
 
@@ -547,14 +547,30 @@
           <p id="modal-content" class="text-sm text-slate-300 leading-relaxed whitespace-pre-line"></p>
         </div>
 
-        <div id="modal-embed-wrapper" class="hidden space-y-2.5">
+        <div id="modal-embed-wrapper" class="hidden space-y-3">
+          <!-- Dual Document Switcher (for Review Jurnal / Soal & Jawaban) -->
+          <div id="modal-doc-switcher" class="hidden flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-navy-950/90 border border-slate-800">
+            <button id="btn-doc-primary" onclick="selectModalDoc('primary')" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-navy-950 shadow-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <span id="label-doc-primary">Jurnal Asli</span>
+            </button>
+            <button id="btn-doc-secondary" onclick="selectModalDoc('secondary')" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-300 hover:text-white hover:bg-slate-800/80">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span id="label-doc-secondary">Hasil Review Jurnal</span>
+            </button>
+          </div>
+
           <div class="flex flex-wrap items-center justify-between gap-2">
-            <span class="text-xs font-mono uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
+            <span id="modal-viewer-label" class="text-xs font-mono uppercase tracking-wider text-sky-400 flex items-center gap-1.5">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
               </svg>
-              Pratinjau Dokumen Tertanam (Google Drive / Slides / Docs)
+              <span id="modal-viewer-label-text">Pratinjau Dokumen Tertanam (Google Drive / Slides / Docs)</span>
             </span>
             <div class="flex items-center gap-2">
               <button onclick="toggleExpandViewer()" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 transition-colors">
@@ -619,6 +635,18 @@
         date: '08 September 2026',
         content: 'Slide presentasi Kelompok 1 mata kuliah Pengantar Bisnis (Dosen Pengampu: Dr. Muhammad Yasin, S.E., M.M.) oleh Muhammad Iftakhul Nidhom dan Aisyah Zalsabilla (12 slide lengkap dengan Daftar Pustaka). Merangkum konsep penciptaan dan pertukaran nilai, tujuan ekonomi-strategis-sosial bisnis, 6 karakteristik utama bisnis modern (dinamis & berisiko, berorientasi pelanggan, inovatif, terorganisasi, berbasis sumber daya, kompetitif), serta implikasi transformasi digital, GCG, dan CSR bagi manajemen maupun UMKM di Indonesia.',
         driveUrl: 'https://docs.google.com/presentation/d/1NsaV1fN4elov_UPRAeWPmRYZBVE7oWw-/edit?usp=drivesdk&ouid=114020610184006256946&rtpof=true&sd=true'
+      },
+      {
+        id: 'task-3',
+        course: 'Pengantar Bisnis',
+        title: 'Review Jurnal: Pengelolaan Sumber Daya Alam Kehutanan dan Keberlanjutan Ekonomi di Bukit Barisan',
+        type: 'Review Jurnal PDF',
+        date: '08 September 2026',
+        content: 'Tugas Review Jurnal mata kuliah Pengantar Bisnis (Dosen Pengampu: Dr. Muhammad Yasin, S.E., M.M.) oleh Muhammad Iftakhul Nidhom terhadap artikel ilmiah karya Wildan Febrian, Onto Seno Putra Samudra, dan Raizky Rienaldy Pramasha (Jurnal Media Akademik, Vol. 2 No. 11, November 2024). Mengulas secara kritis potensi ekonomi kehutanan berbasis masyarakat (KTH, hasil hutan non-kayu, dan ekoturisme di Bukit Barisan), tantangan deforestasi, serta evaluasi metodologi, kajian teoritis, dan penyajian data empiris penelitian.',
+        primaryLabel: 'Jurnal Asli',
+        driveUrl: 'https://drive.google.com/file/d/1p94s7FEnX6LC9ibesZtla0zqkMFENvg6/view?usp=drivesdk',
+        secondaryLabel: 'Hasil Review Jurnal',
+        secondaryDriveUrl: 'https://drive.google.com/file/d/1mpw1BVFZCBM4HKEdqqGmb09qvuVDdAo_/view?usp=drivesdk'
       }
     ];
 
@@ -783,6 +811,7 @@
 
       container.innerHTML = filtered.map(task => {
         const hasDrive = Boolean(task.driveUrl && task.driveUrl.trim() !== '');
+        const hasDualDocs = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
         return `
           <article class="glass-card glass-card-hover rounded-2xl p-5 flex flex-col justify-between gap-4">
             <div>
@@ -803,12 +832,14 @@
             </div>
 
             <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
-              <div class="flex items-center gap-1.5">
+              <div class="flex flex-wrap items-center gap-1.5">
                 <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">${task.type}</span>
-                ${hasDrive ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-sky-500/15 text-sky-300 border border-sky-400/30">Drive Embed</span>` : ''}
+                ${hasDualDocs
+                  ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-400/30">2 Dokumen</span>`
+                  : (hasDrive ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-sky-500/15 text-sky-300 border border-sky-400/30">Drive Embed</span>` : '')}
               </div>
 
-              <button onclick="openReadModal('${task.id}')" class="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors">
+              <button onclick="openReadModal('${task.id}')" class="inline-flex items-center gap-1 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors shrink-0">
                 <span>Buka Tugas</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -818,6 +849,41 @@
           </article>
         `;
       }).join('');
+    }
+
+    function selectModalDoc(mode) {
+      const task = tasks.find(t => t.id === activeTaskId);
+      if (!task) return;
+
+      const iframe = document.getElementById('modal-iframe');
+      const extLink = document.getElementById('modal-external-link');
+      const btnPrimary = document.getElementById('btn-doc-primary');
+      const btnSecondary = document.getElementById('btn-doc-secondary');
+      const viewerLabelText = document.getElementById('modal-viewer-label-text');
+
+      const activeClass = 'flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-navy-950 shadow-sm';
+      const inactiveClass = 'flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-300 hover:text-white hover:bg-slate-800/80';
+
+      if (mode === 'secondary' && task.secondaryDriveUrl) {
+        iframe.src = convertToEmbedUrl(task.secondaryDriveUrl);
+        extLink.href = task.secondaryDriveUrl;
+        btnSecondary.className = activeClass;
+        btnPrimary.className = inactiveClass;
+        if (viewerLabelText) {
+          viewerLabelText.textContent = `Pratinjau: ${task.secondaryLabel || 'Hasil Review Jurnal'}`;
+        }
+      } else {
+        iframe.src = convertToEmbedUrl(task.driveUrl);
+        extLink.href = task.driveUrl;
+        btnPrimary.className = activeClass;
+        btnSecondary.className = inactiveClass;
+        if (viewerLabelText) {
+          const hasDual = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
+          viewerLabelText.textContent = hasDual
+            ? `Pratinjau: ${task.primaryLabel || 'Jurnal Asli'}`
+            : 'Pratinjau Dokumen Tertanam (Google Drive / Slides / Docs)';
+        }
+      }
     }
 
     function openReadModal(taskId) {
@@ -832,16 +898,27 @@
       document.getElementById('modal-content').textContent = task.content;
 
       const embedWrapper = document.getElementById('modal-embed-wrapper');
+      const docSwitcher = document.getElementById('modal-doc-switcher');
       const iframe = document.getElementById('modal-iframe');
-      const extLink = document.getElementById('modal-external-link');
 
       if (task.driveUrl && task.driveUrl.trim() !== '') {
-        const embedUrl = convertToEmbedUrl(task.driveUrl);
-        iframe.src = embedUrl;
-        extLink.href = task.driveUrl;
+        const hasDualDocs = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
+        if (hasDualDocs) {
+          document.getElementById('label-doc-primary').textContent = task.primaryLabel || 'Jurnal Asli';
+          document.getElementById('label-doc-secondary').textContent = task.secondaryLabel || 'Hasil Review Jurnal';
+          docSwitcher.classList.remove('hidden');
+          docSwitcher.classList.add('flex');
+        } else {
+          docSwitcher.classList.add('hidden');
+          docSwitcher.classList.remove('flex');
+        }
+
+        selectModalDoc('primary');
         embedWrapper.classList.remove('hidden');
       } else {
         iframe.src = '';
+        docSwitcher.classList.add('hidden');
+        docSwitcher.classList.remove('flex');
         embedWrapper.classList.add('hidden');
       }
 
