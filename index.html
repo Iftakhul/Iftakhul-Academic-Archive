@@ -122,7 +122,7 @@
         </button>
         <button id="nav-semester1" onclick="switchTab('semester1')" class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all text-slate-300 hover:text-white hover:bg-slate-800/70 flex items-center gap-2">
           <span>Semester 1</span>
-          <span id="badge-total-tasks" class="text-[11px] font-mono px-1.5 py-0.5 rounded-md bg-slate-800 text-amber-400">10</span>
+          <span id="badge-total-tasks" class="text-[11px] font-mono px-1.5 py-0.5 rounded-md bg-slate-800 text-amber-400">12</span>
         </button>
       </nav>
 
@@ -552,7 +552,7 @@
         </div>
 
         <div id="modal-embed-wrapper" class="hidden space-y-3">
-          <!-- Dual Document Switcher (for Review Jurnal / Soal & Jawaban) -->
+          <!-- Multi Document Switcher (2 atau 3 Dokumen: Soal, Jawaban, & Tugas Tambahan) -->
           <div id="modal-doc-switcher" class="hidden flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-navy-950/90 border border-slate-800">
             <button id="btn-doc-primary" onclick="selectModalDoc('primary')" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-navy-950 shadow-sm">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
@@ -565,6 +565,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <span id="label-doc-secondary">Hasil Review Jurnal</span>
+            </button>
+            <button id="btn-doc-tertiary" onclick="selectModalDoc('tertiary')" class="hidden flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-300 hover:text-white hover:bg-slate-800/80">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              <span id="label-doc-tertiary">Tugas Tambahan</span>
             </button>
           </div>
 
@@ -735,6 +741,32 @@
         driveUrl: 'https://drive.google.com/file/d/1OQihh80SQdzy7XNIzhq9OW5z1Heryhx7/view?usp=drivesdk',
         secondaryLabel: 'Jawaban & Pembahasan',
         secondaryDriveUrl: 'https://drive.google.com/file/d/1hRuE9F8vPZdm38hilr6MXL0bzw0tucAX/view?usp=drivesdk'
+      },
+      {
+        id: 'task-11',
+        course: 'Pengantar Bisnis',
+        title: 'Tugas Soal & Jawaban: Kewirausahaan dan Inovasi',
+        type: 'Soal & Jawaban PDF',
+        date: '03 November 2026',
+        content: 'Latihan soal dan pembahasan analitis-kuantitatif (6 soal studi kasus) mata kuliah Pengantar Bisnis (Dosen Pengampu: Dr. Muhammad Yasin, S.E., M.M.) oleh Muhammad Iftakhul Nidhom. Mencakup evaluasi dinamika lingkungan bisnis desa wisata menggunakan Entrepreneurial Orientation (Lumpkin & Dess) dan Dynamic Capabilities (Teece), klasifikasi inovasi inkremental vs radikal beserta perhitungan Expected Monetary Value (EMV) dan analisis keterbatasan modal, kritik teori Disruptive Innovation (Clayton Christensen) dan perancangan Business Model Canvas (BMC) transformasi transportasi wisata, ekosistem kewirausahaan Quintuple Helix & Open Innovation di Kabupaten Bojonegoro, perhitungan laba operasional, pertumbuhan omzet (+50%), serta ROI sederhana (40%/tahun) pascainovasi UMKM, dan sintesis strategi kewirausahaan menghadapi ketidakpastian menggunakan pendekatan Effectuation vs Causation.',
+        primaryLabel: 'Soal Tugas',
+        driveUrl: 'https://drive.google.com/file/d/1qkEP1qU18A4CBmV4iiCTu441GMwspoy0/view?usp=drivesdk',
+        secondaryLabel: 'Jawaban & Pembahasan',
+        secondaryDriveUrl: 'https://drive.google.com/file/d/1XUL2h5lOwM5aJceayll2lsIXkiOD1cwl/view?usp=drivesdk'
+      },
+      {
+        id: 'task-12',
+        course: 'Pengantar Bisnis',
+        title: 'Tugas Soal & Jawaban: Etika, CSR, ESG dan Keberlanjutan (+ Data CSR Bakti BCA)',
+        type: 'Soal & Jawaban PDF',
+        date: '03 November 2026',
+        content: 'Latihan soal dan pembahasan komprehensif (6 soal analitis & kuantitatif) beserta laporan tugas tambahan studi kasus perusahaan terbuka BEI pada mata kuliah Pengantar Bisnis (Dosen Pengampu: Dr. Muhammad Yasin, S.E., M.M.) oleh Muhammad Iftakhul Nidhom. Bagian utama membahas dilema etika ekspansi kawasan wisata melalui Shareholder vs Stakeholder Theory serta etika deontologi, utilitarianisme, dan kebajikan; evaluasi efektivitas anggaran CSR Rp2 miliar menggunakan Carroll\'s CSR Pyramid dan Social Return on Investment (SROI); perhitungan pertumbuhan pendapatan (+20%), konsumsi energi (+26%), emisi karbon (+16%), serta intensitas energi & emisi; analisis praktik greenwashing dan double materiality; perbandingan kelayakan investasi produksi konvensional vs ramah lingkungan dengan Net Present Value (NPV Rp895,39 juta vs Rp1,42 miliar pada tingkat diskonto 10%); serta tata kelola ESG destinasi wisata lokal. Dilengkapi Tugas Tambahan: Laporan Program CSR Bakti BCA 2025 (PT Bank Central Asia Tbk) yang mengkaji 5 bidang program (Pendidikan, Kesehatan, Budaya, Lingkungan, UMKM & Desa Bakti BCA), realisasi dana TJSL Rp159,5 miliar (0,28% dari laba bersih Rp57,5 triliun), serta capaian dampak sosial-ekonomi bagi masyarakat.',
+        primaryLabel: 'Soal Tugas',
+        driveUrl: 'https://drive.google.com/file/d/1fX7JP_I3mQjozqA7VNtVWPjSPV0CPSF1/view?usp=drivesdk',
+        secondaryLabel: 'Jawaban & Pembahasan',
+        secondaryDriveUrl: 'https://drive.google.com/file/d/11q-BLAfqX5h7j6Ohta1PHbhWI8GMp5CD/view?usp=drivesdk',
+        tertiaryLabel: 'Tugas Tambahan: CSR BCA',
+        tertiaryDriveUrl: 'https://drive.google.com/file/d/1kc8vXkiFuaG8zKncqJTR9S3wUs8m-2KZ/view?usp=drivesdk'
       }
     ];
 
@@ -899,7 +931,9 @@
 
       container.innerHTML = filtered.map(task => {
         const hasDrive = Boolean(task.driveUrl && task.driveUrl.trim() !== '');
-        const hasDualDocs = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
+        const hasSecondary = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
+        const hasTertiary = Boolean(task.tertiaryDriveUrl && task.tertiaryDriveUrl.trim() !== '');
+        const docCount = (hasDrive ? 1 : 0) + (hasSecondary ? 1 : 0) + (hasTertiary ? 1 : 0);
         return `
           <article class="glass-card glass-card-hover rounded-2xl p-5 flex flex-col justify-between gap-4">
             <div>
@@ -922,8 +956,8 @@
             <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
               <div class="flex flex-wrap items-center gap-1.5">
                 <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">${task.type}</span>
-                ${hasDualDocs
-                  ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-400/30">2 Dokumen</span>`
+                ${docCount > 1
+                  ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-400/30">${docCount} Dokumen</span>`
                   : (hasDrive ? `<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-sky-500/15 text-sky-300 border border-sky-400/30">Drive Embed</span>` : '')}
               </div>
 
@@ -947,27 +981,38 @@
       const extLink = document.getElementById('modal-external-link');
       const btnPrimary = document.getElementById('btn-doc-primary');
       const btnSecondary = document.getElementById('btn-doc-secondary');
+      const btnTertiary = document.getElementById('btn-doc-tertiary');
       const viewerLabelText = document.getElementById('modal-viewer-label-text');
 
-      const activeClass = 'flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-navy-950 shadow-sm';
-      const inactiveClass = 'flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-300 hover:text-white hover:bg-slate-800/80';
+      const hasTertiary = Boolean(task.tertiaryDriveUrl && task.tertiaryDriveUrl.trim() !== '');
+      const baseActive = 'flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all bg-amber-500 text-navy-950 shadow-sm';
+      const baseInactive = 'flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-300 hover:text-white hover:bg-slate-800/80';
 
-      if (mode === 'secondary' && task.secondaryDriveUrl) {
+      btnPrimary.className = baseInactive;
+      btnSecondary.className = baseInactive;
+      btnTertiary.className = hasTertiary ? baseInactive : `hidden ${baseInactive}`;
+
+      if (mode === 'tertiary' && hasTertiary) {
+        iframe.src = convertToEmbedUrl(task.tertiaryDriveUrl);
+        extLink.href = task.tertiaryDriveUrl;
+        btnTertiary.className = baseActive;
+        if (viewerLabelText) {
+          viewerLabelText.textContent = `Pratinjau: ${task.tertiaryLabel || 'Tugas Tambahan'}`;
+        }
+      } else if (mode === 'secondary' && task.secondaryDriveUrl) {
         iframe.src = convertToEmbedUrl(task.secondaryDriveUrl);
         extLink.href = task.secondaryDriveUrl;
-        btnSecondary.className = activeClass;
-        btnPrimary.className = inactiveClass;
+        btnSecondary.className = baseActive;
         if (viewerLabelText) {
           viewerLabelText.textContent = `Pratinjau: ${task.secondaryLabel || 'Hasil Review Jurnal'}`;
         }
       } else {
         iframe.src = convertToEmbedUrl(task.driveUrl);
         extLink.href = task.driveUrl;
-        btnPrimary.className = activeClass;
-        btnSecondary.className = inactiveClass;
+        btnPrimary.className = baseActive;
         if (viewerLabelText) {
-          const hasDual = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
-          viewerLabelText.textContent = hasDual
+          const hasMulti = Boolean((task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '') || hasTertiary);
+          viewerLabelText.textContent = hasMulti
             ? `Pratinjau: ${task.primaryLabel || 'Jurnal Asli'}`
             : 'Pratinjau Dokumen Tertanam (Google Drive / Slides / Docs)';
         }
@@ -987,18 +1032,27 @@
 
       const embedWrapper = document.getElementById('modal-embed-wrapper');
       const docSwitcher = document.getElementById('modal-doc-switcher');
+      const btnTertiary = document.getElementById('btn-doc-tertiary');
       const iframe = document.getElementById('modal-iframe');
 
       if (task.driveUrl && task.driveUrl.trim() !== '') {
-        const hasDualDocs = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
-        if (hasDualDocs) {
+        const hasSecondary = Boolean(task.secondaryDriveUrl && task.secondaryDriveUrl.trim() !== '');
+        const hasTertiary = Boolean(task.tertiaryDriveUrl && task.tertiaryDriveUrl.trim() !== '');
+        if (hasSecondary || hasTertiary) {
           document.getElementById('label-doc-primary').textContent = task.primaryLabel || 'Jurnal Asli';
           document.getElementById('label-doc-secondary').textContent = task.secondaryLabel || 'Hasil Review Jurnal';
+          if (hasTertiary) {
+            document.getElementById('label-doc-tertiary').textContent = task.tertiaryLabel || 'Tugas Tambahan';
+            btnTertiary.classList.remove('hidden');
+          } else {
+            btnTertiary.classList.add('hidden');
+          }
           docSwitcher.classList.remove('hidden');
           docSwitcher.classList.add('flex');
         } else {
           docSwitcher.classList.add('hidden');
           docSwitcher.classList.remove('flex');
+          btnTertiary.classList.add('hidden');
         }
 
         selectModalDoc('primary');
@@ -1007,6 +1061,7 @@
         iframe.src = '';
         docSwitcher.classList.add('hidden');
         docSwitcher.classList.remove('flex');
+        btnTertiary.classList.add('hidden');
         embedWrapper.classList.add('hidden');
       }
 
